@@ -87,12 +87,8 @@ class Conf {
 				useDefaults: true,
 				errorDataPath: 'property'
 			});
-			const schema = {
-				type: 'object',
-				properties: options.schema
-			};
 
-			this._validator = ajv.compile(schema);
+			this._validator = ajv.compile(options.schema);
 
 			for (const [key, value] of Object.entries(options.schema)) {
 				if (value && value.default) {
